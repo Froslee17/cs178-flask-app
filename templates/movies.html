@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Movies</title>
+</head>
+<body>
+    <h1>Movies</h1>
+
+    {% for movie in movies %}
+        <div>
+            <p>{{ movie }}</p>
+        </div>
+    {% endfor %}
+
+    <a href="/">Back Home</a>
+</body>
+</html>

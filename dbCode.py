@@ -3,7 +3,7 @@
 # Helper functions for database connection and queries
 
 import pymysql
-from creds import *
+import creds
 
 def get_conn():
     return pymysql.connect(
