@@ -21,6 +21,17 @@ def movies():
     results = execute_query(query)
     return render_template("movies.html", movies=results)
 
+@app.route("/movie-details")
+def movie_details():
+    query = """
+        SELECT movies.title, genres.genre_name
+        FROM movies
+        JOIN genres ON movies.genre_id = genres.genre_id
+        LIMIT 20;
+    """
+    results = execute_query(query)
+    return render_template("movie_details.html", movies=results)
+
 @app.route('/delete-user',methods=['GET', 'POST'])
 def delete_user():
     if request.method == 'POST':

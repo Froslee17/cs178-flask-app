@@ -6,12 +6,23 @@
 <body>
     <h1>Movies</h1>
 
-    {% for movie in movies %}
-        <div>
-            <p>{{ movie }}</p>
-        </div>
-    {% endfor %}
+    <table border="1">
+        <tr>
+            <th>Movie ID</th>
+            <th>Title</th>
+            <th>Year</th>
+        </tr>
 
+        {% for movie in movies %}
+        <tr>
+            <td>{{ movie.id }}</td>
+            <td>{{ movie.title }}</td>
+            <td>{{ movie.year }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <br>
     <a href="/">Back Home</a>
 </body>
 </html>
