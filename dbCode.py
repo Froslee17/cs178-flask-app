@@ -1,5 +1,5 @@
 # dbCode.py
-# Author: Alex Froslee
+# Author: Alex Froslee the best coder
 # Helper functions for database connection and queries
 
 import pymysql
