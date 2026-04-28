@@ -3,22 +3,22 @@
 # Helper functions for database connection and queries
 
 import pymysql
-import creds
+from creds import *
 
 def get_conn():
-    """Returns a connection to the MySQL RDS instance."""
-    conn = pymysql.connect(
-        host=creds.host,
-        user=creds.user,
-        password=creds.password,
-        db=creds.db,
+    return pymysql.connect(
+        host=host,
+        user=user,
+        password=password,
+        db=db,
+        cursorclass=pymysql.cursors.DictCursor
     )
-    return conn
 
 def execute_query(query, args=()):
-    """Executes a SELECT query and returns all rows as dictionaries."""
-    cur = get_conn().cursor(pymysql.cursors.DictCursor)
-    cur.execute(query, args)
-    rows = cur.fetchall()
-    cur.close()
-    return rows
+    conn = get_conn()
+    try:
+        with conn.cursor() as cur:
+            cur.execute(query, args)
+            return cur.fetchall()
+    finally:
+        conn.close()
