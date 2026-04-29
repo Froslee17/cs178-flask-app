@@ -1,7 +1,3 @@
-# dbCode.py
-# Author: Alex Froslee
-# Helper functions for database connection and queries
-
 import pymysql
 import creds
 
@@ -19,6 +15,13 @@ def execute_query(query, args=()):
     try:
         with conn.cursor() as cur:
             cur.execute(query, args)
-            return cur.fetchall()
+
+            if query.strip().lower().startswith("select"):
+                results = cur.fetchall()
+            else:
+                conn.commit()
+                results = None
+
+            return results
     finally:
         conn.close()
