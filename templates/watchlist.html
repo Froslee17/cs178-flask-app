@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Watchlist</title>
+</head>
+<body>
+    <h1>My Watchlist</h1>
+
+    <table border="1">
+        <tr>
+            <th>Movie ID</th>
+            <th>Title</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+
+        {% for item in items %}
+        <tr>
+            <td>{{ item.movie_id }}</td>
+            <td>{{ item.title }}</td>
+            <td>{{ item.status }}</td>
+            <td>
+                <a href="/mark-watched/{{ item.movie_id }}">Mark Watched</a>
+                |
+                <a href="/delete-watchlist/{{ item.movie_id }}">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <br>
+    <a href="/">Back Home</a>
+</body>
+</html>

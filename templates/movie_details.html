@@ -1,23 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Movies</title>
+    <title>Movie Details</title>
 </head>
 <body>
-    <h1>Movies</h1>
+    <h1>Movie Details</h1>
 
     <table border="1">
         <tr>
-            <th>Movie ID</th>
             <th>Title</th>
-            <th>Year</th>
+            <th>Genre</th>
         </tr>
 
         {% for movie in movies %}
         <tr>
-            <td>{{ movie.id }}</td>
             <td>{{ movie.title }}</td>
-            <td>{{ movie.year }}</td>
+            <td>{{ movie.genre_name }}</td>
         </tr>
         {% endfor %}
     </table>
@@ -26,7 +24,3 @@
     <a href="/">Back Home</a>
 </body>
 </html>
-
-<td>
-    <a href="/delete-movie/{{ movie.id }}">Delete</a>
-</td>

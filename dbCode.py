@@ -7,10 +7,10 @@ import creds
 
 def get_conn():
     return pymysql.connect(
-        host=host,
-        user=user,
-        password=password,
-        db=db,
+        host=creds.host,
+        user=creds.user,
+        password=creds.password,
+        db=creds.db,
         cursorclass=pymysql.cursors.DictCursor
     )
 
