@@ -14,12 +14,19 @@
         </tr>
 
         {% for movie in movies %}
-        <tr>
-            <td>{{ movie.id }}</td>
-            <td>{{ movie.title }}</td>
-            <td>{{ movie.year }}</td>
-        </tr>
-        {% endfor %}
+<tr>
+    <td>{{ movie.id }}</td>
+    <td>{{ movie.title }}</td>
+    <td>{{ movie.year }}</td>
+    <td>
+        <a href="/add-watchlist/{{ movie.id }}/{{ movie.title }}">Add to Watchlist</a>
+        |
+        <a href="/update-movie/{{ movie.id }}">Update</a>
+        |
+        <a href="/delete-movie/{{ movie.id }}">Delete</a>
+    </td>
+</tr>
+{% endfor %}
     </table>
 
     <br>
